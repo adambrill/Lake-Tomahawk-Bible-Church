@@ -1,0 +1,34 @@
+/*------------------------------------------------------------------
+Print CSS
+
+Author:			Ryan Brill <ryan@solutionset.com>
+
+Methods: 		RULES ORGANISATION WITHIN CSS FILES
+				Should mirror the html document flow:
+				General
+					Container
+						Header
+							Nav
+						Body
+							Layout Setup
+								Modules
+						Footer
+					Hacks
+					(other)
+--------------------------------------------------------------------*/
+
+/* Hide Elements
+--------------------------------------------------------------------*/
+div#header {
+	display: none;
+}
+
+/* Containers
+--------------------------------------------------------------------*/
+#container {
+	width: auto;
+}
+#content {
+	float: none;
+	width: auto;
+}

@@ -1,0 +1,626 @@
+/*------------------------------------------------------------------
+Global CSS
+
+Author:			Ryan Brill <ryan@solutionset.com>
+
+Methods: 		RULES ORGANISATION WITHIN CSS FILES
+				Should mirror the html document flow:
+				General
+					Container
+						Header
+							Nav
+						Body
+							Layout Setup
+								Modules
+						Footer
+					Hacks
+					(other)
+--------------------------------------------------------------------*/
+
+/* Global Styles
+--------------------------------------------------------------------*/
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	color: #404040;
+	font-family: tahoma, arial, helvetica, sans-serif;
+	font-size: 62.5%; /* with this setting, 1em = 10px */
+	line-height: 1.5em;
+	background: #fff;
+}
+img {
+	border: 0;
+}
+
+
+/* Links
+--------------------------------------------------------------------*/
+a {
+	color: #3579B2;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+/* Text
+--------------------------------------------------------------------*/
+h1 {
+	font-size: 2.5em;
+	font-weight: normal;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #fff;
+}
+h2 {
+	font-size: 2.2em;
+	line-height: 1.1em;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	margin-bottom: 10px;
+}
+h3 {
+	font-size: 1.5em;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	margin-bottom: 10px;
+}
+h4 {
+	font-size: 1.3em;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+p {
+	font-size: 1.3em;
+	line-height: 1.3em;
+	margin-bottom: 1em;
+}
+p.links {
+	text-align: right;
+}
+p.links a {
+	padding-right: 12px;
+	background: url(../i/icon_arrows.gif) no-repeat 100% 5px;
+}
+
+/* Often Used Classes
+--------------------------------------------------------------------*/
+.floatleft {
+	float: left;
+	display: inline;
+}
+.floatright {
+	float: right;
+	display: inline;
+}
+
+/* Lists
+--------------------------------------------------------------------*/
+ul,
+dl {
+	font-size: 1.3em;
+	margin-bottom: 1em;
+}
+ul {
+	list-style: none;
+}
+
+/* Lists -> UL -> Item List
+--------------------------------------------------------------------*/
+ul.itemlist li {
+	border-bottom: 1px dotted #999;
+	padding: 5px 0;
+}
+ul.itemlist li.last {
+	border: 0;
+}
+
+/* Lists -> DL -> Detail List
+--------------------------------------------------------------------*/
+dl.detailList dt {
+	width: 100px;
+	float: left;
+}
+dl.detailList dd {
+	margin-left: 100px;
+}
+
+/* Tables
+--------------------------------------------------------------------*/
+table,
+table td,
+table th {
+	vertical-align: top;
+	text-align: left;
+	border-bottom: 1px solid #CCCCCC;
+	padding: 0 5px;
+}
+table {
+	background-color: #ffffff;
+	border-collapse: collapse;
+	border: 1px solid #CCCCCC;
+	width: 749px;
+	margin: 0 0 1em 1px;
+}
+* html table {
+	width: 750px;
+	margin: -1px 0 1em 0;
+}
+table th {
+	font-size: 1.3em;
+	font-weight: bold;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	vertical-align: middle;
+	color: #000;
+	background: #E7E6E6 url(../i/bg_table_th.gif) repeat-x;
+	height: 22px;
+}
+table th.asc,
+table th.desc {
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	background: #e4e3e3 url(../i/bg_table_th_sel.gif) repeat-x;
+	padding: 0;
+}
+table th.asc span,
+table th.desc span {
+	display: block;
+	height: 21px;
+	line-height: 21px;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	background: url(../i/icon_th_up.gif) no-repeat 100% 7px;
+	padding: 0 5px;
+}
+table th.desc span {
+	background: url(../i/icon_th_down.gif) no-repeat 100% 7px;
+}
+table th a,
+table th a:hover,
+table th a:visited {
+	color: #000;
+}
+table td {
+	font-size: 1.3em;
+	padding: 4px 5px;
+	background-color: #fff;
+}
+table tr.alt td {
+	background-color: #f5f9ff;
+}
+
+/* Box -> Pagination
+---------------------------------------------*/
+div.pagination ul {
+	text-align: right;
+}
+div.pagination li {
+	display: inline;
+	margin-right: 4px;
+}
+div.pagination p {
+	float: left;
+	width: 300px;
+	margin: 0;
+}
+div.pagination li.first a,
+div.pagination li.previous a {
+	background-image: url(../i/icon_prev.gif);
+	background-repeat: no-repeat;
+	background-position: left 6px;
+	padding-left: 10px;
+}
+div.pagination li.previous a {
+	background-image: url(../i/icon_prev_single.gif);
+}
+div.pagination li.current span {
+	font-weight: bold;
+}
+div.pagination li.next a,
+div.pagination li.last a {
+	background-image: url(../i/icon_next.gif);
+	background-repeat: no-repeat;
+	background-position: right 6px;
+	padding-right: 10px;
+}
+div.pagination li.next a {
+	background-image: url(../i/icon_next_single.gif);
+}
+div.pagination li.dots.left {
+	margin-left: 14px;
+}
+div.pagination li.dots.right {
+	margin-right: 14px;
+}
+div.no_pagination {
+	margin: -1px -7px 0 -7px;
+	border: 1px solid #BFBDBD;
+	padding: 3px 10px;
+}
+
+/* Form Layout
+--------------------------------------------------------------------*/
+form fieldset {
+	border: none;
+	padding: 7px 0;
+}
+form span.error {
+	display: block;
+	color: #D1392C;
+}
+form div.error label {
+	color: #D1392C;
+}
+form div.error input.text,
+form div.error input.password,
+form div.error textarea,
+form div.error select {
+	border: 1px solid #F1B3B3;
+	border-top: 1px solid #D1392C;
+	border-left: 1px solid #D1392C;
+	background: #ffc;
+}
+form div {
+	padding-left: 150px;
+}
+form div.nolabel {
+	margin-left: -150px;
+}
+form div.buttons {
+	margin-left: 0;
+}
+form div label {
+	float: left;
+	display: inline;
+	margin-left: -150px;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+form div div label {
+	float: none;
+	display: inline;
+	margin-left: 0;
+	font-weight: normal;
+}
+form div div {
+	padding: 0;
+	margin: 0;
+}
+form div.iefix {
+	_height: 1%; /*IE FIX*/
+	margin-bottom: 10px;
+}
+/* list columns */
+form div.cols {
+	margin-bottom: 10px;
+}
+form div.cols ul.col {
+	width: 50%;
+	float: left;
+}
+form div.cols.three ul.col {
+	width: 33%;
+}
+form div ul {
+	list-style: none;
+}
+form div ul.checkbox li,
+form div ul.radio li {
+	margin: 0px;
+	padding: 0px;
+	margin-bottom: 3px;
+}
+form div ul.checkbox li label,
+form div ul.radio li label {
+	font-weight: normal;
+}
+
+/* Form Layout -> Search
+--------------------------------------------------------------------*/
+div.search form fieldset {
+	border: none;
+	padding: 7px 0;
+}
+div.search form input.text,
+div.search form input.password {
+	width: 150px;
+}
+
+div.search form div {
+	float: left;
+	display: inline;
+	padding: 0;
+	margin: 0 5px 5px 0;
+}
+* html div.search form div {
+	height: 2em; /* IE needs this */
+}
+div.search form div label {
+	float: none;
+	display: inline;
+	margin-left: 0px;
+}
+div.search form div div.nolabel {
+	padding-top: 12px;
+	margin: 0;	
+}
+div.search form div div.nolabel input.image {
+	position: relative;
+	top: 5px;
+}
+
+
+/* Form Fields
+--------------------------------------------------------------------*/
+input.text,
+input.password {
+	font-family:  tahoma, arial, helvetica, sans-serif;
+	font-size: 1.3em;
+	background-color: #f9f9f9;
+	border: 1px solid #ccc;
+	padding: 2px;
+	width: 250px;
+}
+input.checkbox,
+input.radio {
+	_height: 13px;
+	_width: 13px;
+}
+input.file {
+	font-size: 1.3em;
+	padding: 2px;
+}
+select {
+	font-family:  tahoma, arial, helvetica, sans-serif;
+	font-size: 1.1em;
+}
+select option {
+	padding: 0 2px;
+}
+textarea {
+	font-family:  tahoma, arial, helvetica, sans-serif;
+	font-size: 1.1em;
+	background-color: #f9f9f9;
+	border: 1px solid #ccc;
+	padding: 2px;
+	width: 550px;
+	height: 150px;
+}
+
+/* Containers
+--------------------------------------------------------------------*/
+#container {
+	width: 750px;
+	position: relative;
+	margin: 0 auto;
+}
+#content {
+	float: left;
+	width: 640px;
+	padding: 0 10px;
+	position: relative;
+	overflow: hidden; /* don't let wide content break the layout */
+}
+#sidebar {
+	float: right;
+	display: inline;
+	margin-right: 10px;
+	width: 220px;
+	overflow: hidden; /* don't let wide content break the layout */
+}
+
+/* Header
+--------------------------------------------------------------------*/
+div#header {
+	height: 90px;
+	background: #202020;
+	margin-bottom: 25px;
+}
+div#header div.content {
+	width: 750px;
+	height: 90px;
+	position: relative;
+	margin: 0 auto;
+}
+div#header h1#logo a {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 363px;
+	height: 54px;
+	background: url(../i/logo.gif);
+	text-indent: -5000px;
+	overflow: hidden;
+}
+div#header div.login {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #000;
+	padding: 5px 10px;
+}
+div#header div.login p {
+	color: #999;
+	font-size: 1.1em;
+	margin: 0;
+}
+div#header div.login input.text,
+div#header div.login input.password {
+	width: 80px;
+	padding: 1px 3px;
+	color: #999;
+	background: #202020;
+	border: 1px solid #404040;
+}
+div#header div.login form div {
+	float: left;
+	display: inline;
+	padding: 0;
+	margin: 0 5px 0 0;
+}
+* html div#header div.login form div {
+	height: 2em; /* IE needs this */
+}
+div#header div.login form div label {
+	float: none;
+	display: inline;
+	color: #999;
+	font-size: 1.1em;
+	margin-left: 0px;
+}
+div#header div.login form div div.nolabel {
+	padding-top: 16px;
+	margin: 0;
+}
+
+
+/* Navigation
+--------------------------------------------------------------------*/
+div#header ul#nav {
+	position: absolute;
+	bottom: 0px;
+	left: 377px;
+	height: 20px;
+	width: 362px;
+	list-style: none;
+	list-style-position: outside;
+	margin: 0;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+div#header ul#nav li {
+	float: left;
+	display: inline;
+	background: url(../i/nav_sep.gif) no-repeat right 4px;
+	line-height: 20px;
+}
+div#header ul#nav li.last {
+	background: none;
+}
+div#header ul#nav li a {
+	display: block;
+	color: #9CF;
+	line-height: 20px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+div#header ul#nav li.selected a {
+	color: #fff;
+	font-weight: bold;
+}
+div#header ul#nav li a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+/* Box
+--------------------------------------------------------------------*/
+div.box {
+	margin-bottom: 20px;
+}
+
+/* Box -> Cols
+--------------------------------------------------------------------*/
+.homepage {
+	margin-right: -20px;
+}
+div.box.col {
+	width: 365px;
+	float: left;
+	margin-right: 20px;
+}
+div.box.col.right {
+	margin-left: 20px;
+	clear: none;
+}
+
+/* Box -> Flavors -> Search
+--------------------------------------------------------------------*/
+div.box.search {
+	background: #f5f5f5;
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin-bottom: 0;
+}
+
+/* Box -> Flavors -> Player
+--------------------------------------------------------------------*/
+div.box.player {
+	border: 1px solid #ccc;
+	border-bottom: 0;
+	padding: 5px 0;
+	margin-bottom: 0;
+}
+
+/* Box -> Flavors -> Map
+--------------------------------------------------------------------*/
+div.mapContainer {
+	width: 353px;
+	padding: 3px;
+	border: 3px solid #eee;
+}
+div.mapContainer div#map {
+	width: 353px;
+	height: 221px;
+}
+div.mapContainer p {
+	margin: 3px 0;
+}
+
+/* Box -> Flavors -> Members
+--------------------------------------------------------------------*/
+div.members dl dt {
+	font-weight: bold;
+	width: 190px;
+	float: left;
+	margin-right: 10px;
+	/*border-top: 1px dotted #ccc;
+	padding-top: 10px;*/
+}
+div.members dl dt div {
+	font-weight: normal;
+	font-size: .95em;
+	color: #777;
+}
+div.members dl dd.info {
+	float: left;
+	width: 200px;
+	margin: 0;
+	/*margin-bottom: 30px;
+	/*border-top: 1px dotted #ccc;
+	padding-top: 10px;*/
+}
+div.members dl dd.meta {
+	margin-left: 400px;
+}
+div.members dl dd.meta div {
+	color: #777;
+	font-size: .95em;
+}
+
+/* Footer
+--------------------------------------------------------------------*/
+#footer {
+	clear: both;
+	margin: 10px 0 0 0;
+	border-top: 1px dotted #999;
+	padding: 5px 0 0 0;
+}
+
+/* Clearfix  (http: //www.positioniseverything.net/easyclearing.html)
+--------------------------------------------------------------------*/
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.clearfix {
+	display: inline-block; /* IE/Mac */
+}
+/* Hides from IE-mac \*/
+* html .clearfix {
+	height: 1%;
+}
+.clearfix {
+	display: block;
+}
+/* End hide from IE-mac */
